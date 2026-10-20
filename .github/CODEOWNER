@@ -1,0 +1,3 @@
+echo * amineseloula> .github\CODEOWNERS
+echo # Documentation> docs\README.md
+echo PORT=5000> backend\.env.example
