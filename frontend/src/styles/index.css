@@ -1,0 +1,225 @@
+/* ============================================================
+   LDC Club Platform — Global Design System
+   Pure vanilla CSS • No frameworks
+   ============================================================ */
+
+/* ----- Google Fonts import (Poppins) ----- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================================
+   1. DESIGN TOKENS (CSS Custom Properties)
+   ========================================================== */
+:root {
+  /* — Colors — */
+  --color-primary:    #1F3A4D; /* Navy */
+  --color-accent:     #F5B800; /* Sunny yellow */
+  --color-success:    #3E8E5A; /* Forest green */
+  --color-info:       #4A90C2; /* Sky blue */
+  --color-background: #F4EAD5; /* Cream paper */
+  --color-danger:     #D9482B; /* Orange-red */
+  --color-text-main:  #1F3A4D;
+
+  /* — Derived / utility colors — */
+  --color-text-muted:  #5a6e7a;
+  --color-text-light:  #ffffff;
+  --color-border:      #d6cbb8;
+  --color-surface:     #ffffff;
+  --color-overlay:     rgba(31, 58, 77, 0.45);
+
+  /* — Typography — */
+  --font-body: 'Poppins', sans-serif;
+
+  /* — Spacing scale (4-px grid) — */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* — UI Settings — */
+  --radius-card: 12px;
+  --radius-btn:  8px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  /* — Transitions — */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow:   400ms ease;
+
+  /* — Layout — */
+  --navbar-height: 64px;
+  --sidebar-width: 260px;
+  --content-max-width: 1200px;
+}
+
+/* ==========================================================
+   2. MODERN CSS RESET
+   Based on Andy Bell's "A (more) Modern CSS Reset"
+   ========================================================== */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin & padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent font-size inflation on mobile and enable smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Set core root defaults */
+html,
+body {
+  height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-main);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Remove list styles on ul, ol with a list role (default) */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4, h5, h6,
+button, input, label {
+  line-height: 1.2;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-primary);
+  text-wrap: balance;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.625rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.1rem; }
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: var(--color-info);
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Remove all animations & transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================
+   3. ROOT ELEMENT & LAYOUT SHELL
+   ========================================================== */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================
+   4. UTILITY CLASSES
+   ========================================================== */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================
+   5. RTL (Right-To-Left) SUPPORT — Arabic
+   ========================================================== */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .sidebar {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .main-content {
+  margin-left: 0;
+  margin-right: var(--sidebar-width);
+}
+
+/* Flip any inline directional spacing helpers in RTL */
+[dir="rtl"] .ml-auto { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .mr-auto { margin-right: 0; margin-left: auto; }
