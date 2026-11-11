@@ -1,4 +1,6 @@
 import styles from './LandingPage.module.css';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 export default function LandingPage() {
   const tracks = [
@@ -71,7 +73,9 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className={styles.page}>
+    <div className={styles.pageShell}>
+      <Navbar />
+      <main className={styles.page}>
       {/* ── 1. HERO SECTION ── */}
       <section className={styles.heroSection} id="hero">
         <div className={styles.sectionContainer}>
@@ -246,6 +250,8 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+      </main>
+      <Footer />
     </div>
   );
 }

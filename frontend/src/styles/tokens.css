@@ -1,0 +1,59 @@
+/* ============================================================
+   LDC Club Platform — Design Tokens
+   ============================================================ */
+
+:root {
+  /* — Colors — */
+  --color-primary:       #1F3A4D; /* Navy */
+  --color-primary-dark:  #162C3B;
+  --color-primary-light: #2A4557;
+  --color-accent:        #F5B800; /* Sunny yellow */
+  --color-success:       #2E7D52; /* Forest green */
+  --color-success-bg:    #EAF6EE;
+  --color-info:          #4A90C2; /* Sky blue */
+  --color-info-bg:       #EAF3FB;
+  --color-background:    #F7F3E8; /* Cream paper */
+  --color-danger:        #D9482B; /* Orange-red */
+  --color-danger-bg:     #FDEEEB;
+  --color-warning-bg:    #FDF3E7;
+  --color-warning-text:  #D96B27;
+  --color-text-main:     #1F3A4D;
+
+  /* — Derived / utility colors — */
+  --color-text-muted:    #6D7D8B;
+  --color-text-light:    #ffffff;
+  --color-border:        #E5DEC9;
+  --color-surface:       #ffffff;
+  --color-overlay:       rgba(31, 58, 77, 0.45);
+
+  /* — Typography — */
+  --font-body:  'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Fraunces', Georgia, serif;
+
+  /* — Spacing scale (4-px grid) — */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* — UI Settings — */
+  --radius-card:   12px;
+  --radius-btn:    8px;
+  --radius-pill:   999px;
+  --shadow-soft:   0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  /* — Transitions — */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow:   400ms ease;
+
+  /* — Layout — */
+  --navbar-height:     64px;
+  --sidebar-width:     260px;
+  --content-max-width: 1200px;
+}
+
