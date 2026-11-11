@@ -1,0 +1,456 @@
+/* Member Dashboard Styles */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Page Greeting */
+.greetingSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.greetingTitle {
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.15;
+}
+
+.greetingSub {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================
+   HERO BANNER
+   ========================================================== */
+.heroBanner {
+  background-color: var(--color-primary);
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 44% 56%;
+  box-shadow: 0 4px 16px rgba(31, 58, 77, 0.12);
+  min-height: 256px;
+}
+
+.heroContent {
+  padding: 36px 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.heroBadge {
+  background-color: #ffffff;
+  color: var(--color-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.heroTitle {
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.heroSubtitle {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.92rem;
+  margin-bottom: 28px;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btnPrimaryAction {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 11px 22px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+}
+
+.btnPrimaryAction:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.btnSecondaryAction {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity var(--transition-fast);
+}
+
+.btnSecondaryAction:hover {
+  opacity: 0.85;
+}
+
+.heroImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================
+   STATS ROW (4 CARDS)
+   ========================================================== */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.statCard {
+  background-color: var(--color-surface);
+  border-radius: 16px;
+  padding: 22px 24px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statLabel {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.statValue {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.15;
+  margin: 2px 0;
+}
+
+.statValueSuccess {
+  color: var(--color-success);
+}
+
+.statSub {
+  font-size: 0.78rem;
+  color: #8b99a5;
+}
+
+/* ==========================================================
+   BOTTOM TWO-COLUMN SECTION
+   ========================================================== */
+.bottomGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+}
+
+.cardBox {
+  background-color: var(--color-surface);
+  border-radius: 16px;
+  padding: 26px 28px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardBoxHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cardBoxTitle {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+.cardBoxSubtitle {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 3px;
+}
+
+.seeAllLink {
+  background: none;
+  border: none;
+  color: var(--color-info);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.seeAllLink:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Events List */
+.eventsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.eventRow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 0;
+}
+
+.eventRow:first-child {
+  padding-top: 0;
+}
+
+.eventDivider {
+  height: 1px;
+  background-color: #F0ECE1;
+  width: 100%;
+}
+
+.eventThumbWrapper {
+  position: relative;
+  width: 135px;
+  height: 98px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.eventThumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eventThumbBadge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: rgba(255, 255, 255, 0.95);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.badgeConfirm {
+  color: var(--color-success);
+}
+
+.badgeWaitlist {
+  color: var(--color-warning-text);
+  background-color: var(--color-warning-bg);
+}
+
+.eventDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.eventDateTime {
+  color: var(--color-danger);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.eventTitle {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.25;
+}
+
+.eventLocation {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.eventActionLink {
+  background: none;
+  border: none;
+  color: var(--color-info);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 4px;
+  align-self: flex-start;
+}
+
+.eventActionLink:hover {
+  text-decoration: underline;
+}
+
+/* Announcements List */
+.announcementsList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.announcementItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.announcementIconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconBoxImportant {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+
+.iconBoxReminder {
+  background-color: var(--color-info-bg);
+  color: var(--color-info);
+}
+
+.announcementBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.announcementBadge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.badgeImportant {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+
+.badgeReminder {
+  background-color: var(--color-info-bg);
+  color: var(--color-info);
+}
+
+.announcementTitle {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.3;
+}
+
+.announcementTime {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+@media (max-width: 1200px) {
+  .heroBanner {
+    grid-template-columns: 1fr;
+  }
+  .heroImageWrapper {
+    height: 200px;
+  }
+  .bottomGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+  .greetingTitle {
+    font-size: 1.8rem;
+  }
+  .heroContent {
+    padding: 24px 20px;
+  }
+  .heroTitle {
+    font-size: 1.6rem;
+  }
+  .eventRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .eventThumbWrapper {
+    width: 100%;
+    height: 140px;
+  }
+}

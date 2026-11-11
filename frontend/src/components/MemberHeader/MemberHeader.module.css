@@ -1,0 +1,234 @@
+/* Member Header CSS */
+
+.header {
+  height: 72px;
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  box-sizing: border-box;
+}
+
+.leftContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobileMenuBtn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+}
+
+.breadcrumbPrefix {
+  color: var(--color-text-muted);
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.breadcrumbPrefix:hover {
+  color: var(--color-primary);
+}
+
+.breadcrumbSeparator {
+  color: #c4baa4;
+  font-weight: 400;
+}
+
+.breadcrumbCurrent {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* Right Section */
+.rightContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Member Badge */
+.memberBadge {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+/* Language Switcher */
+.langPill {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 2px 4px;
+  gap: 2px;
+}
+
+.langBtn {
+  background: none;
+  border: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  padding: 4px 8px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.langBtn:hover {
+  color: var(--color-primary);
+}
+
+.langBtnActive {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* Notification Bell */
+.notificationWrapper {
+  position: relative;
+}
+
+.notificationBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
+  text-decoration: none;
+}
+
+.notificationBtn:hover {
+  background-color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+.notificationBadge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background-color: var(--color-danger);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-background);
+}
+
+/* User Profile Pill */
+.profileBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  padding: 4px 6px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  text-decoration: none;
+}
+
+.profileBtn:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--color-success);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.userName {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+.userRole {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.chevron {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  margin-left: 2px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .mobileMenuBtn {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0 16px;
+  }
+
+  .memberBadge,
+  .langPill {
+    display: none;
+  }
+
+  .userInfo {
+    display: none;
+  }
+}
+

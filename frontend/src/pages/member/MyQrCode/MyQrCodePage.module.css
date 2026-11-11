@@ -1,0 +1,291 @@
+/* My QR Code Page Styles */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Header */
+.headerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pageTitle {
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.15;
+}
+
+.pageSub {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================
+   TWO-COLUMN LAYOUT
+   ========================================================== */
+.ticketLayout {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 48px;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+
+/* ==========================================================
+   TICKET CARD (LEFT)
+   ========================================================== */
+.ticketCard {
+  background-color: var(--color-surface);
+  border-radius: 20px;
+  padding: 32px 36px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 620px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Card Header */
+.ticketHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ticketEventMeta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.busBadge {
+  width: 48px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.eventTitleBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.ticketEventTitle {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+.ticketEventSub {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.ticketBadge {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.dashedDivider {
+  height: 1px;
+  border-top: 1px dashed #EDE5D5;
+  width: 100%;
+}
+
+/* QR Code Display */
+.qrContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.qrImage {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+}
+
+.qrScanInstruction {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+/* Metadata Grid */
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 16px;
+  column-gap: 24px;
+}
+
+.detailField {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.fieldLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.fieldValue {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Ticket Code Strip */
+.ticketCodeStrip {
+  background-color: #F5EEDD;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+}
+
+/* ==========================================================
+   DAY OF DEPARTURE GUIDANCE (RIGHT)
+   ========================================================== */
+.guidancePanel {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 12px;
+}
+
+.guidanceTitle {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.stepNumber {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stepText {
+  font-size: 0.92rem;
+  color: #4A5D6B;
+  line-height: 1.45;
+}
+
+.btnDownload {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 14px 24px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  max-width: 320px;
+  transition: all var(--transition-fast);
+}
+
+.btnDownload:hover {
+  background-color: var(--color-background);
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.returnLink {
+  background: none;
+  border: none;
+  color: var(--color-info);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  align-self: flex-start;
+  transition: opacity var(--transition-fast);
+}
+
+.returnLink:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+@media (max-width: 1024px) {
+  .ticketLayout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .ticketCard {
+    max-width: 100%;
+  }
+  .btnDownload {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .ticketCard {
+    padding: 20px;
+  }
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+  .guidanceTitle {
+    font-size: 1.6rem;
+  }
+}
+

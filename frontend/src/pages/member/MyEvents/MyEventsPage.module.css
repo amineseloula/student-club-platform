@@ -1,0 +1,271 @@
+/* My Events Page Styles */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Header */
+.headerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pageTitle {
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.15;
+}
+
+.pageSub {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+/* Tabs */
+.tabsContainer {
+  display: flex;
+  gap: 32px;
+  border-bottom: 2px solid #EAE3D2;
+  position: relative;
+  margin-top: 8px;
+}
+
+.tabBtn {
+  background: none;
+  border: none;
+  padding: 12px 4px 14px 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.tabBtn:hover {
+  color: var(--color-primary);
+}
+
+.tabBtnActive {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.tabIndicator {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--color-accent);
+  border-radius: 3px 3px 0 0;
+}
+
+.tabCountBadge {
+  background-color: #EAE3D2;
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.tabBtnActive .tabCountBadge {
+  background-color: var(--color-accent);
+}
+
+/* Events List */
+.eventsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.eventCard {
+  background-color: var(--color-surface);
+  border-radius: 16px;
+  padding: 20px 24px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.eventCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.eventPhotoWrapper {
+  width: 195px;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.eventPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Date Box */
+.dateBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.dateDay {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.dateMonth {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+/* Event Info */
+.eventInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.statusBadge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.statusConfirm {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.statusWaitlist {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.eventCardTitle {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.25;
+}
+
+.eventMetaList {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  flex-wrap: wrap;
+}
+
+.eventMetaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Actions */
+.eventActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.btnQr {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btnQr:hover {
+  background-color: var(--color-background);
+  border-color: var(--color-primary);
+}
+
+.btnDetails {
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 9px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btnDetails:hover {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .eventCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .eventPhotoWrapper {
+    width: 100%;
+    height: 180px;
+  }
+  .dateBox {
+    flex-direction: row;
+    gap: 8px;
+    align-items: baseline;
+  }
+  .eventActions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+

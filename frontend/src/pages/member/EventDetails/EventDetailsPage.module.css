@@ -1,0 +1,391 @@
+/* Event Details Page Styles */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Back Link */
+.backLink {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  align-self: flex-start;
+  padding: 0;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.backLink:hover {
+  color: var(--color-info);
+  transform: translateX(-3px);
+}
+
+/* ==========================================================
+   HERO BANNER
+   ========================================================== */
+.heroBannerWrapper {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.heroBannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 30, 42, 0.1) 0%,
+    rgba(15, 30, 42, 0.4) 40%,
+    rgba(15, 30, 42, 0.85) 100%
+  );
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.heroTag {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  align-self: flex-start;
+}
+
+.heroTitle {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.heroMetaRow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  flex-wrap: wrap;
+}
+
+.heroMetaItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==========================================================
+   STATUS PILLS ROW
+   ========================================================== */
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.statusLabel {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.statusPills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statusPill {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.statusPill:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.statusPillActive {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+/* ==========================================================
+   MAIN TWO-COLUMN GRID
+   ========================================================== */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* Left Card */
+.detailsCard {
+  background-color: var(--color-surface);
+  border-radius: 16px;
+  padding: 32px 36px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.sectionParagraph {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #5A6E7A;
+}
+
+.sectionDivider {
+  height: 1px;
+  background-color: #F0ECE1;
+  margin: 28px 0;
+  width: 100%;
+}
+
+/* Program Timeline */
+.timelineList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.timelineItem {
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #EDE7D9;
+}
+
+.timelineItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.timelineTime {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  min-width: 60px;
+}
+
+.timelineLabel {
+  font-size: 0.92rem;
+  color: #5A6E7A;
+}
+
+/* What to Bring Tags */
+.tagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.bringTag {
+  background-color: #F4EBD9;
+  color: #4A3E2C;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid #EAE0CB;
+}
+
+/* ==========================================================
+   RIGHT SIDEBAR CARD
+   ========================================================== */
+.sidebarCard {
+  background-color: var(--color-surface);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 96px;
+}
+
+/* Confirmed Banner */
+.confirmedBox {
+  background-color: var(--color-success-bg);
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.confirmedTitle {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-success);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.confirmedSub {
+  font-size: 0.78rem;
+  color: #5F8A70;
+  margin-left: 24px;
+}
+
+/* Info List */
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 6px 0;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+}
+
+.infoLabel {
+  color: var(--color-text-muted);
+}
+
+.infoValue {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.infoDivider {
+  height: 1px;
+  background-color: #F0ECE1;
+  width: 100%;
+}
+
+/* Card Actions */
+.sidebarActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btnShowTicket {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  transition: all var(--transition-fast);
+}
+
+.btnShowTicket:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.btnCancelBooking {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: opacity var(--transition-fast);
+}
+
+.btnCancelBooking:hover {
+  opacity: 0.85;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+@media (max-width: 1100px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+  .sidebarCard {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroBannerWrapper {
+    height: 280px;
+  }
+  .heroTitle {
+    font-size: 2rem;
+  }
+  .heroOverlay {
+    padding: 20px;
+  }
+  .detailsCard {
+    padding: 20px;
+  }
+  .timelineItem {
+    gap: 16px;
+  }
+}
+

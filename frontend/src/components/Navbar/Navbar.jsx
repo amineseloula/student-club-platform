@@ -7,7 +7,6 @@ export default function Navbar() {
   const [isRTL, setIsRTL] = useState(false);
 
   useEffect(() => {
-    // Check initial dir attribute on html tag
     setIsRTL(document.documentElement.dir === 'rtl');
   }, []);
 
