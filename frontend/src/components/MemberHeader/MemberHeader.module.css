@@ -219,6 +219,10 @@
 
 @media (max-width: 768px) {
   .header {
+
+    height: 64px;
+
+
     padding: 0 16px;
   }
 

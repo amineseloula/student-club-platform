@@ -328,7 +328,7 @@
    ========================================================== */
 .tracksGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: var(--space-xl);
 }
 
@@ -396,7 +396,7 @@
    ========================================================== */
 .eventsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
   gap: var(--space-xl);
 }
 
@@ -548,8 +548,26 @@
 }
 
 @media (max-width: 600px) {
+  .sectionContainer {
+    padding: 0 var(--space-md);
+  }
+
   .heroTitle {
     font-size: 1.85rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .showcaseCard {
+    padding: var(--space-lg);
+  }
+
+  .showcaseHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-sm);
   }
 
   .statsBar {
@@ -563,5 +581,17 @@
 
   .ctaTitle {
     font-size: 1.7rem;
+  }
+
+  .trackCard,
+  .eventBody {
+    padding: var(--space-lg);
+  }
+
+  .eventHeader,
+  .eventFooter {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-sm);
   }
 }
