@@ -219,6 +219,7 @@
 
 @media (max-width: 768px) {
   .header {
+    height: 64px;
     padding: 0 16px;
   }
 
@@ -228,6 +229,46 @@
   }
 
   .userInfo {
+    display: none;
+  }
+
+  .rightContainer {
+    gap: 8px;
+  }
+
+  .breadcrumb {
+    max-width: calc(100vw - 150px);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 420px) {
+  .header {
+    padding: 0 10px;
+  }
+
+  .leftContainer {
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .mobileMenuBtn {
+    font-size: 1.3rem;
+  }
+
+  .breadcrumb {
+    max-width: calc(100vw - 112px);
+    font-size: 0.78rem;
+    gap: 5px;
+  }
+
+  .profileBtn {
+    padding: 2px;
+  }
+
+  .chevron {
     display: none;
   }
 }

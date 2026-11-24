@@ -1,3 +1,4 @@
+import MemberLayout from '../../../components/MemberLayout/MemberLayout';
 import styles from './MemberDashboard.module.css';
 import lacDashboard from '../../../assets/member/lac-noir-dashboard.jpg';
 import lacThumb from '../../../assets/member/lac-noir-thumb.jpg';
@@ -5,7 +6,8 @@ import volleyThumb from '../../../assets/member/volleyball-thumb.jpg';
 
 export default function MemberDashboard() {
   return (
-    <div className={styles.container}>
+    <MemberLayout activePage="dashboard" breadcrumbTitle="Tableau de bord">
+      <div className={styles.container}>
       {/* ── Page Greeting ── */}
       <section className={styles.greetingSection}>
         <h1 className={styles.greetingTitle}>Bonjour Amine !</h1>
@@ -181,6 +183,7 @@ export default function MemberDashboard() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </MemberLayout>
   );
 }

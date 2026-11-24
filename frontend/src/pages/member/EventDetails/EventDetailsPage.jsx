@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import MemberLayout from '../../../components/MemberLayout/MemberLayout';
 import styles from './EventDetailsPage.module.css';
 import lacBanner from '../../../assets/member/lac-noir-banner.jpg';
 
@@ -6,7 +7,8 @@ export default function EventDetailsPage() {
   const [selectedStatus, setSelectedStatus] = useState('inscrit');
 
   return (
-    <div className={styles.container}>
+    <MemberLayout activePage="events" breadcrumbTitle="Détail de l'événement">
+      <div className={styles.container}>
       {/* ── Back Navigation ── */}
       <a 
         href="#" 
@@ -171,6 +173,7 @@ export default function EventDetailsPage() {
           </div>
         </aside>
       </div>
-    </div>
+      </div>
+    </MemberLayout>
   );
 }

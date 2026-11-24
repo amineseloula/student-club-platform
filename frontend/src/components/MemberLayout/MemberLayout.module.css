@@ -39,7 +39,13 @@
 
 @media (max-width: 1024px) {
   .mainContent {
-    padding: 24px 20px 36px 20px;
+    padding: 24px 20px 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContent {
+    padding: 20px 14px 32px;
   }
 }
 
