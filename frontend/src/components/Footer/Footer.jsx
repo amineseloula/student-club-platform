@@ -1,15 +1,8 @@
 import styles from './Footer.module.css';
 import clubLogo from '../../assets/logo.jpg';
 
-export default function Footer() {
+export default function Footer({ onLoginClick, onJoinClick }) {
   const currentYear = new Date().getFullYear();
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
 
   return (
     <footer className={styles.footer} id="contact">
@@ -18,79 +11,126 @@ export default function Footer() {
           {/* Brand Info */}
           <div className={styles.brandCol}>
             <div className={styles.brandHeader}>
-              <img src={clubLogo} alt="LDC Logo" className={styles.brandLogo} />
-              <span className={styles.brandTitle}>LDC CLUB</span>
+              <span className={styles.logoTile}>
+                <img src={clubLogo} alt="Logo LDC" className={styles.brandLogo} />
+              </span>
+              <div>
+                <span className={styles.brandTitle}>LDC</span>
+                <span className={styles.brandSub}>BY ESTIN</span>
+              </div>
             </div>
             <p className={styles.description}>
-              Leaders & Developers Club empowers passionate students to build impactful software, develop leadership qualities, and collaborate on real-world industry challenges.
+              Le club étudiant de l&apos;ESTIN dédié aux sorties en pleine nature, au sport et aux rencontres humaines depuis 2020.
             </p>
             <div className={styles.socialLinks}>
-              <a href="https://github.com" target="_blank" rel="noreferrer" className={styles.socialIcon} aria-label="GitHub">
-                GH
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.socialIcon}
+                aria-label="Instagram"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className={styles.socialIcon} aria-label="LinkedIn">
-                IN
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.socialIcon}
+                aria-label="Facebook"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                </svg>
               </a>
-              <a href="https://discord.com" target="_blank" rel="noreferrer" className={styles.socialIcon} aria-label="Discord">
-                DC
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className={styles.socialIcon} aria-label="Instagram">
-                IG
+              <a
+                href="mailto:contact@ldc-estin.dz"
+                className={styles.socialIcon}
+                aria-label="Email"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Column 1: Découvrir */}
           <div className={styles.col}>
-            <h4 className={styles.colTitle}>Navigation</h4>
+            <h4 className={styles.colTitle}>Découvrir</h4>
             <ul className={styles.linkList}>
-              <li className={styles.linkItem}><a href="#hero">Home</a></li>
-              <li className={styles.linkItem}><a href="#about">About the Club</a></li>
-              <li className={styles.linkItem}><a href="#features">Club Tracks</a></li>
-              <li className={styles.linkItem}><a href="#events">Upcoming Events</a></li>
-              <li className={styles.linkItem}><a href="#join">Membership Application</a></li>
+              <li className={styles.linkItem}><a href="#accueil">Accueil</a></li>
+              <li className={styles.linkItem}><a href="#a-propos">À propos du club</a></li>
+              <li className={styles.linkItem}><a href="#evenements">Prochains événements</a></li>
+              <li className={styles.linkItem}><a href="#actualites">Actualités</a></li>
+              <li className={styles.linkItem}><a href="#galerie">Galerie souvenirs</a></li>
             </ul>
           </div>
 
-          {/* Programs / Tracks */}
+          {/* Column 2: Votre espace */}
           <div className={styles.col}>
-            <h4 className={styles.colTitle}>Club Tracks</h4>
+            <h4 className={styles.colTitle}>Votre espace</h4>
             <ul className={styles.linkList}>
-              <li className={styles.linkItem}><a href="#features">Full-Stack Web Dev</a></li>
-              <li className={styles.linkItem}><a href="#features">AI & Machine Learning</a></li>
-              <li className={styles.linkItem}><a href="#features">Mobile Development</a></li>
-              <li className={styles.linkItem}><a href="#features">UI / UX Product Design</a></li>
-              <li className={styles.linkItem}><a href="#features">Leadership & Public Speaking</a></li>
+              <li className={styles.linkItem}>
+                <a
+                  href="#connexion"
+                  onClick={(e) => {
+                    if (onLoginClick) {
+                      e.preventDefault();
+                      onLoginClick();
+                    }
+                  }}
+                >
+                  Se connecter
+                </a>
+              </li>
+              <li className={styles.linkItem}>
+                <a
+                  href="#rejoindre"
+                  onClick={(e) => {
+                    if (onJoinClick) {
+                      e.preventDefault();
+                      onJoinClick();
+                    }
+                  }}
+                >
+                  Rejoindre le club
+                </a>
+              </li>
+              <li className={styles.linkItem}><a href="#equipe">Le bureau exécutif</a></li>
+              <li className={styles.linkItem}><a href="#evenements">Calendrier des sorties</a></li>
             </ul>
           </div>
 
-          {/* Contact / Office */}
+          {/* Column 3: Nous trouver */}
           <div className={styles.col}>
-            <h4 className={styles.colTitle}>Contact & Location</h4>
-            <ul className={styles.linkList}>
-              <li className={styles.linkItem}><span>📍 Student Union Building, Room 204</span></li>
-              <li className={styles.linkItem}><span>✉️ contact@ldc-club.org</span></li>
-              <li className={styles.linkItem}><span>🕒 Sun - Thu: 9:00 AM - 5:00 PM</span></li>
+            <h4 className={styles.colTitle}>Nous trouver</h4>
+            <ul className={styles.infoList}>
+              <li className={styles.infoItem}>Campus ESTIN, Amizour</li>
+              <li className={styles.infoItem}>06300 Béjaïa, Algérie</li>
+              <li className={styles.infoItem}>
+                <a href="mailto:contact@ldc-estin.dz">contact@ldc-estin.dz</a>
+              </li>
+              <li className={styles.infoItem}>Permanences : Mar &amp; Jeu · 12h – 14h</li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom copyright notice */}
+        {/* Bottom copyright & legal bar */}
         <div className={styles.bottomBar}>
-          <p>© {currentYear} LDC Club Platform. Built with passion & pure CSS.</p>
-          <p>
-            <button 
-              type="button" 
-              onClick={scrollToTop} 
-              className={styles.backToTopBtn}
-              aria-label="Scroll back to top of the page"
-            >
-              Back to Top ↑
-            </button>
-          </p>
+          <p>© {currentYear} LDC — Club Étudiant ESTIN. Tous droits réservés.</p>
+          <div className={styles.legalLinks}>
+            <a href="#confidentialite">Politique de confidentialité</a>
+            <span aria-hidden="true">·</span>
+            <a href="#mentions-legales">Mentions légales</a>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
-
