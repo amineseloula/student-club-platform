@@ -287,21 +287,5 @@
   .guidanceTitle {
     font-size: 1.6rem;
   }
-  .ticketHeader {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .ticketBadge {
-    align-self: flex-start;
-  }
-  .qrImage {
-    width: min(220px, 70vw);
-    height: auto;
-    aspect-ratio: 1;
-  }
-  .ticketCodeStrip {
-    overflow-wrap: anywhere;
-  }
 }
 

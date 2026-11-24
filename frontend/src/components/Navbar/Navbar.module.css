@@ -143,10 +143,6 @@
 }
 
 @media (max-width: 868px) {
-  .container {
-    padding: 0 16px;
-  }
-
   .navLinks,
   .actions .ctaBtn {
     display: none;

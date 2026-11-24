@@ -387,45 +387,5 @@
   .timelineItem {
     gap: 16px;
   }
-  .statusRow {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-  .statusPills {
-    max-width: 100%;
-    overflow-x: auto;
-    padding-bottom: 2px;
-  }
-  .statusPill {
-    flex-shrink: 0;
-  }
-  .infoRow {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 3px;
-  }
-}
-
-@media (max-width: 420px) {
-  .heroBannerWrapper {
-    height: 250px;
-  }
-
-  .heroTitle {
-    font-size: 1.7rem;
-  }
-
-  .heroMetaRow {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 7px;
-    font-size: 0.82rem;
-  }
-
-  .timelineItem {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 3px;
-  }
 }
 

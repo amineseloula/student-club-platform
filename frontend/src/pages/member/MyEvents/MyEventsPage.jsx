@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import MemberLayout from '../../../components/MemberLayout/MemberLayout';
 import styles from './MyEventsPage.module.css';
 import lacLg from '../../../assets/member/lac-lg.jpg';
 import volleyLg from '../../../assets/member/volleyball-lg.jpg';
@@ -48,8 +47,7 @@ export default function MyEventsPage() {
   ];
 
   return (
-    <MemberLayout activePage="events" breadcrumbTitle="Mes événements">
-      <div className={styles.container}>
+    <div className={styles.container}>
       {/* ── Page Header ── */}
       <section className={styles.headerSection}>
         <h1 className={styles.pageTitle}>Mes événements</h1>
@@ -158,7 +156,6 @@ export default function MyEventsPage() {
           </article>
         ))}
       </div>
-      </div>
-    </MemberLayout>
+    </div>
   );
 }

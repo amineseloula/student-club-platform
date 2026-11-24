@@ -1,4 +1,3 @@
-import MemberLayout from '../../../components/MemberLayout/MemberLayout';
 import styles from './MyQrCodePage.module.css';
 import busBadge from '../../../assets/member/bus-badge.png';
 import qrCodeImg from '../../../assets/member/qr-code.png';
@@ -9,8 +8,7 @@ export default function MyQrCodePage() {
   };
 
   return (
-    <MemberLayout activePage="events" breadcrumbTitle="Mon billet">
-      <div className={styles.container}>
+    <div className={styles.container}>
       {/* ── Page Header ── */}
       <section className={styles.headerSection}>
         <h1 className={styles.pageTitle}>Mon billet</h1>
@@ -116,7 +114,6 @@ export default function MyQrCodePage() {
           </a>
         </aside>
       </div>
-      </div>
-    </MemberLayout>
+    </div>
   );
 }

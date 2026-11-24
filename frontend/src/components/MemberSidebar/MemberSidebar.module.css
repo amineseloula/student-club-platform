@@ -252,10 +252,3 @@
   }
 }
 
-@media (max-width: 360px) {
-  .sidebar {
-    width: min(280px, 88vw);
-    min-width: min(280px, 88vw);
-  }
-}
-

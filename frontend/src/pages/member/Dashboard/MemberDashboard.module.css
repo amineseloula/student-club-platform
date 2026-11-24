@@ -453,39 +453,4 @@
     width: 100%;
     height: 140px;
   }
-  .cardBox {
-    padding: 20px 16px;
-  }
-  .cardBoxHeader {
-    gap: 12px;
-  }
-  .seeAllLink {
-    white-space: nowrap;
-  }
-}
-
-@media (max-width: 420px) {
-  .heroBadge {
-    font-size: 0.62rem;
-    padding: 5px 10px;
-  }
-
-  .heroActions {
-    width: 100%;
-    align-items: stretch;
-  }
-
-  .btnPrimaryAction,
-  .btnSecondaryAction {
-    justify-content: center;
-    width: 100%;
-  }
-
-  .announcementItem {
-    gap: 10px;
-  }
-
-  .announcementTitle {
-    overflow-wrap: anywhere;
-  }
 }

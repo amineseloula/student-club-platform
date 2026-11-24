@@ -595,30 +595,3 @@
     gap: var(--space-sm);
   }
 }
-
-@media (max-width: 400px) {
-  .heroBadge {
-    font-size: 0.72rem;
-  }
-
-  .heroButtonGroup,
-  .ctaActionGroup {
-    align-items: stretch;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .btnPrimary,
-  .btnSecondary {
-    justify-content: center;
-    width: 100%;
-  }
-
-  .showcaseStats {
-    gap: var(--space-sm);
-  }
-
-  .miniStat {
-    padding: var(--space-sm);
-  }
-}
