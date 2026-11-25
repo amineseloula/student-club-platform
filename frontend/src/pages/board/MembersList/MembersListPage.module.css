@@ -1,0 +1,21 @@
+/* Members table (Figma page 35) */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.profileLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  color: var(--color-info);
+  white-space: nowrap;
+}
+
+.profileLink:hover {
+  text-decoration: underline;
+}
