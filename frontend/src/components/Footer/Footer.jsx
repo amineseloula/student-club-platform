@@ -63,11 +63,11 @@ export default function Footer({ onLoginClick, onJoinClick }) {
           <div className={styles.col}>
             <h4 className={styles.colTitle}>Découvrir</h4>
             <ul className={styles.linkList}>
-              <li className={styles.linkItem}><a href="#accueil">Accueil</a></li>
-              <li className={styles.linkItem}><a href="#a-propos">À propos du club</a></li>
-              <li className={styles.linkItem}><a href="#evenements">Prochains événements</a></li>
-              <li className={styles.linkItem}><a href="#actualites">Actualités</a></li>
-              <li className={styles.linkItem}><a href="#galerie">Galerie souvenirs</a></li>
+              <li className={styles.linkItem}><a href="#/">Accueil</a></li>
+              <li className={styles.linkItem}><a href="#/a-propos">À propos du club</a></li>
+              <li className={styles.linkItem}><a href="#/evenements">Prochains événements</a></li>
+              <li className={styles.linkItem}><a href="#/actualites">Actualités</a></li>
+              <li className={styles.linkItem}><a href="#/galerie">Galerie souvenirs</a></li>
             </ul>
           </div>
 
@@ -101,8 +101,8 @@ export default function Footer({ onLoginClick, onJoinClick }) {
                   Rejoindre le club
                 </a>
               </li>
-              <li className={styles.linkItem}><a href="#equipe">Le bureau exécutif</a></li>
-              <li className={styles.linkItem}><a href="#evenements">Calendrier des sorties</a></li>
+              <li className={styles.linkItem}><a href="#/contact">Nous contacter</a></li>
+              <li className={styles.linkItem}><a href="#/bureau/messages">Boîte de réception bureau</a></li>
             </ul>
           </div>
 
@@ -124,9 +124,9 @@ export default function Footer({ onLoginClick, onJoinClick }) {
         <div className={styles.bottomBar}>
           <p>© {currentYear} LDC — Club Étudiant ESTIN. Tous droits réservés.</p>
           <div className={styles.legalLinks}>
-            <a href="#confidentialite">Politique de confidentialité</a>
+            <a href="#/confidentialite">Politique de confidentialité</a>
             <span aria-hidden="true">·</span>
-            <a href="#mentions-legales">Mentions légales</a>
+            <a href="#/contact">Contact</a>
           </div>
         </div>
       </div>
