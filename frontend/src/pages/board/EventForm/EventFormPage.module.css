@@ -1,0 +1,32 @@
+/* Create / edit event (Figma page 31) */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* The form is narrower than the page, like in the Figma */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 1200px;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.requiredNote {
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+}
+
+.star {
+  color: var(--color-danger);
+  font-weight: 700;
+}

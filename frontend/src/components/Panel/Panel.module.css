@@ -1,0 +1,46 @@
+.panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 3px 0 rgba(229, 222, 201, 0.7); /* soft beige "lip" under cards */
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* lets wide content (tables) scroll instead of overflowing */
+  overflow: hidden; /* keeps flush content (table header) inside the rounded corners */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+.action {
+  flex-shrink: 0;
+}
+
+.body {
+  flex: 1;
+  padding: 20px 24px;
+}
+
+.bodyFlush {
+  padding: 0;
+}

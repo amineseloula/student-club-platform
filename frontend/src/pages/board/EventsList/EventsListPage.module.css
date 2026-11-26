@@ -1,0 +1,9 @@
+/* Events management list (Figma page 30).
+   The toolbar layout comes from components/Toolbar. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}

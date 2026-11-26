@@ -1,0 +1,221 @@
+/* Member detail (Figma page 36) */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+/* ---------- Profile card ---------- */
+.profile {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px 28px;
+}
+
+.identity {
+  flex: 1;
+  min-width: 220px;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.15;
+}
+
+.meta {
+  margin-top: 6px;
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  word-break: break-word;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.roleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.roleLabel {
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+}
+
+.roleSelect {
+  width: 200px;
+}
+
+/* Confirmation box under the profile */
+.confirm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 20px;
+  padding: 16px 20px;
+  background-color: var(--color-danger-bg);
+  border: 1px solid #F5C9BE;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  color: var(--color-primary);
+}
+
+.confirmButtons {
+  display: flex;
+  gap: 8px;
+}
+
+/* ---------- Two columns ---------- */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* Information list */
+.infoList {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.78rem;
+}
+
+.infoRow:first-child {
+  padding-top: 0;
+}
+
+.infoRow dt {
+  color: var(--color-text-muted);
+}
+
+.infoRow dd {
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: right;
+}
+
+/* Activity summary: 3 numbers separated by lines */
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px 0;
+}
+
+.summaryItem {
+  display: flex;
+  flex-direction: column-reverse; /* number on top, label under it */
+  align-items: center;
+  gap: 4px;
+  border-right: 1px solid var(--color-border);
+}
+
+.summaryItem:last-child {
+  border-right: none;
+}
+
+.summaryItem dd {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.summaryItem dt {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Events attended ---------- */
+.history {
+  display: flex;
+  flex-direction: column;
+}
+
+.historyItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.historyItem:first-child {
+  padding-top: 0;
+}
+
+.historyItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.historyText {
+  flex: 1;
+  min-width: 0;
+}
+
+.historyName {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.historyDate {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.emptyText {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .controls {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .roleRow {
+    justify-content: space-between;
+  }
+
+  .name {
+    font-size: 1.6rem;
+  }
+}

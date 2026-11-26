@@ -8,7 +8,6 @@ export default function Footer({ onLoginClick, onJoinClick }) {
     <footer className={styles.footer} id="contact">
       <div className={styles.container}>
         <div className={styles.grid}>
-          {/* Brand Info */}
           <div className={styles.brandCol}>
             <div className={styles.brandHeader}>
               <span className={styles.logoTile}>

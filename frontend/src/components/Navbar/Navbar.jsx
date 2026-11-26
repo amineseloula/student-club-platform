@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styles from './Navbar.module.css';
 import clubLogo from '../../assets/logo.jpg';
 
@@ -38,6 +38,9 @@ export default function Navbar({ onLoginClick, onJoinClick }) {
     setActiveId(id);
     setIsMobileOpen(false);
   };
+
+  const closeMobileMenu = () => setIsMobileOpen(false);
+  const joinLabel = isRTL ? 'انضم إلينا' : 'Join Club';
 
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ''}`}>
@@ -119,7 +122,6 @@ export default function Navbar({ onLoginClick, onJoinClick }) {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
       {isMobileOpen && (
         <nav className={styles.mobileMenu} aria-label="Navigation mobile">
           {NAV_LINKS.map((item) => (
