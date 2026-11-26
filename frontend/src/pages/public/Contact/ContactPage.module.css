@@ -1,0 +1,370 @@
+.page {
+  background-color: #FFF9EF;
+  color: #203D50;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero {
+  background-color: #F5EBD5;
+  padding: 64px 0 56px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #398F60;
+  margin-bottom: 10px;
+}
+
+.heroTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2.3rem, 4.2vw, 3.3rem);
+  font-weight: 800;
+  color: #203D50;
+  line-height: 1.08;
+  margin-bottom: 12px;
+}
+
+.heroSubtitle {
+  font-size: 1.02rem;
+  color: #5C6D7A;
+  max-width: 580px;
+}
+
+.mainSection {
+  padding: 64px 0 72px;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 52px;
+  align-items: start;
+}
+
+.infoTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 2.8vw, 2.2rem);
+  color: #203D50;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.infoDesc {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: #546673;
+  margin-bottom: 30px;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.contactIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: #F5EBD5;
+  color: #203D50;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.contactLabel {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7C8990;
+}
+
+.contactValue {
+  display: block;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: #203D50;
+  text-decoration: none;
+  margin-top: 2px;
+}
+
+a.contactValue:hover {
+  color: #DC452E;
+}
+
+.contactHint {
+  display: block;
+  font-size: 0.82rem;
+  color: #398F60;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Form Card */
+.formCard {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(32, 61, 80, 0.08);
+  border-radius: 18px;
+  padding: 34px 36px;
+  box-shadow: 0 14px 36px rgba(32, 61, 80, 0.08);
+}
+
+.formTitle {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: #203D50;
+  margin-bottom: 18px;
+}
+
+.alertBox {
+  padding: 13px 16px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.alertSuccess {
+  background-color: #EAF6EE;
+  color: #235E3C;
+  border: 1px solid rgba(57, 143, 96, 0.35);
+}
+
+.alertError {
+  background-color: #FDEEEB;
+  color: #B4321D;
+  border: 1px solid rgba(220, 69, 46, 0.35);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #203D50;
+}
+
+.label span {
+  color: #DC452E;
+}
+
+.input {
+  width: 100%;
+  background-color: #FFFDF9;
+  border: 1.5px solid #E3D8C3;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 0.92rem;
+  color: #203D50;
+  outline: none;
+  transition: border-color 150ms ease;
+}
+
+.input:focus {
+  border-color: #203D50;
+  background-color: #FFFFFF;
+}
+
+.inputInvalid {
+  border-color: #DC452E;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.83rem;
+  line-height: 1.5;
+  color: #546673;
+  cursor: pointer;
+}
+
+.checkboxRow input {
+  margin-top: 3px;
+  accent-color: #203D50;
+}
+
+.checkboxRow a {
+  color: #203D50;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.errorText {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #DC452E;
+}
+
+.submitBtn {
+  margin-top: 6px;
+  background-color: #F7B900;
+  color: #203D50;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 22px;
+  font-size: 0.94rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(247, 185, 0, 0.28);
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+}
+
+.submitBtn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+/* Location & Social */
+.locationSection {
+  background-color: #F5EBD5;
+  padding: 64px 0 84px;
+}
+
+.locationGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+}
+
+.mapCard,
+.socialCard {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(32, 61, 80, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(32, 61, 80, 0.06);
+}
+
+.mapVisual {
+  position: relative;
+  height: 190px;
+  background: linear-gradient(135deg, #DDEAE1 0%, #E7EEF2 100%);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.mapGridLines {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, rgba(32, 61, 80, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(32, 61, 80, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.mapPin {
+  position: relative;
+  background-color: #203D50;
+  color: #FFFFFF;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 10px 22px rgba(32, 61, 80, 0.25);
+  border: 3px solid #F7B900;
+}
+
+.mapCaption {
+  padding: 22px 26px;
+}
+
+.mapCaption h3,
+.socialCard h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: #203D50;
+  margin-bottom: 6px;
+}
+
+.mapCaption p,
+.socialCard p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #5C6D7A;
+}
+
+.socialCard {
+  padding: 28px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.socialButtons {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.socialBtn {
+  background-color: #FFF9EF;
+  border: 1px solid #E3D8C3;
+  color: #203D50;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.socialBtn:hover {
+  border-color: #203D50;
+  background-color: #F5EBD5;
+}
+
+@media (max-width: 920px) {
+  .mainGrid,
+  .locationGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .formCard {
+    padding: 24px 20px;
+  }
+}

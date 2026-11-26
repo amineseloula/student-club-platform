@@ -5,6 +5,7 @@ import Footer from '../../components/Footer/Footer';
 import EventCard from '../../components/EventCard/EventCard';
 import NewsCard from '../../components/NewsCard/NewsCard';
 import GalleryLightbox from '../../components/GalleryLightbox/GalleryLightbox';
+import { navigate } from '../../router/hashRouter';
 
 import clubLogo from '../../assets/logo.jpg';
 import lacLg from '../../assets/member/lac-lg.jpg';
@@ -180,7 +181,7 @@ const EXECUTIVE_TEAM = [
   },
 ];
 
-export default function LandingPage() {
+export default function LandingPage({ onLoginClick, onJoinClick }) {
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [activeArticle, setActiveArticle] = useState(null);
   const [infoModal, setInfoModal] = useState(null);
@@ -204,19 +205,6 @@ export default function LandingPage() {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [activeArticle, infoModal]);
-
-  const openStoryModal = () => {
-    setInfoModal({
-      badge: 'NOTRE HISTOIRE',
-      title: 'Depuis 2020, une aventure humaine à l’ESTIN',
-      paragraphs: [
-        "Créé par un petit groupe d'étudiants passionnés de randonnée et de rencontres, le LDC (Les Découvreurs) est né d'une idée simple : sortir des salles de cours pour vivre la vie étudiante autrement.",
-        "Au fil des promotions, plus de 280 membres ont partagé le même bus vers les montagnes de Kabylie, les plages de Béjaïa et les veillées acoustiques sous les étoiles."
-      ],
-      actionLabel: 'Voir la galerie souvenirs',
-      actionHref: '#galerie',
-    });
-  };
 
   const openJoinModal = () => {
     setInfoModal({
@@ -244,9 +232,25 @@ export default function LandingPage() {
     });
   };
 
+  const handleJoinTrigger = () => {
+    if (onJoinClick) {
+      onJoinClick();
+    } else {
+      openJoinModal();
+    }
+  };
+
+  const handleLoginTrigger = () => {
+    if (onLoginClick) {
+      onLoginClick();
+    } else {
+      openLoginModal();
+    }
+  };
+
   return (
     <div className={styles.pageShell}>
-      <Navbar onLoginClick={openLoginModal} onJoinClick={openJoinModal} />
+      <Navbar activePath="/" onLoginClick={handleLoginTrigger} onJoinClick={handleJoinTrigger} />
 
       <main className={styles.mainContent}>
         {/* ── B. HERO SECTION ── */}
@@ -278,14 +282,14 @@ export default function LandingPage() {
                     className={styles.btnPrimary}
                     onClick={(e) => {
                       e.preventDefault();
-                      openJoinModal();
+                      handleJoinTrigger();
                     }}
                   >
                     <span>Rejoindre le club</span>
                     <span aria-hidden="true">→</span>
                   </a>
 
-                  <a href="#evenements" className={styles.btnSecondary}>
+                  <a href="#/evenements" className={styles.btnSecondary}>
                     Découvrir nos événements
                   </a>
                 </div>
@@ -358,19 +362,12 @@ export default function LandingPage() {
 
             <div className={styles.cardsGridThree}>
               {UPCOMING_EVENTS.map((event) => (
-                <EventCard key={event.id} event={event} />
+                <EventCard key={event.id} event={event} href={`#/evenements/${event.id}`} />
               ))}
             </div>
 
             <div className={styles.eventsCtaRow}>
-              <a
-                href="#rejoindre"
-                className={styles.btnNavy}
-                onClick={(e) => {
-                  e.preventDefault();
-                  openJoinModal();
-                }}
-              >
+              <a href="#/evenements" className={styles.btnNavy}>
                 <span>Voir tous les événements</span>
                 <span aria-hidden="true">→</span>
               </a>
@@ -416,7 +413,7 @@ export default function LandingPage() {
                 <button
                   type="button"
                   className={styles.btnWhite}
-                  onClick={openStoryModal}
+                  onClick={() => navigate('/a-propos')}
                 >
                   <span>Découvrir notre histoire</span>
                   <span aria-hidden="true">→</span>
@@ -442,7 +439,7 @@ export default function LandingPage() {
                 <NewsCard
                   key={article.id}
                   article={article}
-                  onReadMore={setActiveArticle}
+                  onReadMore={(item) => navigate(`/actualites/${item.id}`)}
                 />
               ))}
             </div>
@@ -535,7 +532,7 @@ export default function LandingPage() {
               <button
                 type="button"
                 className={styles.joinBtn}
-                onClick={openJoinModal}
+                onClick={handleJoinTrigger}
               >
                 <span>Je rejoins l&apos;aventure</span>
                 <span aria-hidden="true">→</span>
@@ -545,7 +542,7 @@ export default function LandingPage() {
         </section>
       </main>
 
-      <Footer onLoginClick={openLoginModal} onJoinClick={openJoinModal} />
+      <Footer onLoginClick={handleLoginTrigger} onJoinClick={handleJoinTrigger} />
 
       {/* Gallery Lightbox */}
       <GalleryLightbox

@@ -14,6 +14,14 @@
   box-shadow: 0 16px 34px rgba(32, 59, 77, 0.12);
 }
 
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
 .media {
   position: relative;
   height: 204px;

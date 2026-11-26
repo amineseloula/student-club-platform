@@ -1,0 +1,58 @@
+.guardShell {
+  min-height: 100vh;
+  background-color: #FFF9EF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.guardShell > section {
+  max-width: 540px;
+  width: 100%;
+}
+
+.guardCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 8px 4px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background-color: #EAF3FB;
+  color: #203D50;
+}
+
+.badgeDanger {
+  background-color: #FDEEEB;
+  color: #DC452E;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #203D50;
+}
+
+.desc {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: #63737F;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+}

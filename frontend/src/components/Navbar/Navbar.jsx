@@ -1,52 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useAuth } from '../../context/useAuth';
 import styles from './Navbar.module.css';
 import clubLogo from '../../assets/logo.jpg';
 
 const NAV_LINKS = [
-  { id: 'accueil', label: 'Accueil', href: '#accueil' },
-  { id: 'a-propos', label: 'À propos', href: '#a-propos' },
-  { id: 'evenements', label: 'Événements', href: '#evenements' },
-  { id: 'actualites', label: 'Actualités', href: '#actualites' },
-  { id: 'galerie', label: 'Galerie', href: '#galerie' },
-  { id: 'contact', label: 'Contact', href: '#contact' },
+  { id: 'accueil', label: 'Accueil', href: '#/', match: (p) => p === '' || p === '/' || p === '/accueil' },
+  { id: 'a-propos', label: 'À propos', href: '#/a-propos', match: (p) => p === '/a-propos' },
+  { id: 'evenements', label: 'Événements', href: '#/evenements', match: (p) => p.startsWith('/evenements') },
+  { id: 'actualites', label: 'Actualités', href: '#/actualites', match: (p) => p.startsWith('/actualites') },
+  { id: 'galerie', label: 'Galerie', href: '#/galerie', match: (p) => p === '/galerie' },
+  { id: 'contact', label: 'Contact', href: '#/contact', match: (p) => p === '/contact' },
 ];
 
-export default function Navbar({ onLoginClick, onJoinClick }) {
+export default function Navbar({ activePath = '/', onLoginClick, onJoinClick }) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [activeId, setActiveId] = useState('accueil');
   const [scrolled, setScrolled] = useState(false);
+  const { user, isAuthenticated, isBoardMember, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 12);
-
-      const scrollPos = window.scrollY + 120;
-      for (let i = NAV_LINKS.length - 1; i >= 0; i -= 1) {
-        const el = document.getElementById(NAV_LINKS[i].id);
-        if (el && el.offsetTop <= scrollPos) {
-          setActiveId(NAV_LINKS[i].id);
-          break;
-        }
-      }
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleLinkClick = (id) => {
-    setActiveId(id);
-    setIsMobileOpen(false);
-  };
-
-  const closeMobileMenu = () => setIsMobileOpen(false);
-  const joinLabel = isRTL ? 'انضم إلينا' : 'Join Club';
+  const closeMobile = () => setIsMobileOpen(false);
 
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ''}`}>
       <div className={styles.container}>
         {/* Brand */}
-        <a href="#accueil" className={styles.brand} onClick={() => handleLinkClick('accueil')}>
+        <a href="#/" className={styles.brand} onClick={closeMobile}>
           <span className={styles.logoFrame}>
             <img src={clubLogo} alt="Logo LDC Club" className={styles.brandLogo} />
           </span>
@@ -58,45 +43,65 @@ export default function Navbar({ onLoginClick, onJoinClick }) {
 
         {/* Desktop Nav Items */}
         <nav className={styles.navLinks} aria-label="Navigation principale">
-          {NAV_LINKS.map((item) => (
-            <a
-              key={item.id}
-              href={item.href}
-              onClick={() => handleLinkClick(item.id)}
-              className={`${styles.link} ${activeId === item.id ? styles.linkActive : ''}`}
-            >
-              {item.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((item) => {
+            const isActive = item.match(activePath);
+            return (
+              <a
+                key={item.id}
+                href={item.href}
+                onClick={closeMobile}
+                aria-current={isActive ? 'page' : undefined}
+                className={`${styles.link} ${isActive ? styles.linkActive : ''}`}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Right side actions */}
         <div className={styles.actions}>
-          <a
-            href="#connexion"
-            className={styles.loginLink}
-            onClick={(e) => {
-              if (onLoginClick) {
-                e.preventDefault();
-                onLoginClick();
-              }
-            }}
-          >
-            Se connecter
-          </a>
+          {isAuthenticated ? (
+            <>
+              {isBoardMember && (
+                <a href="#/bureau/messages" className={styles.boardBadgeLink}>
+                  Espace bureau
+                </a>
+              )}
+              <span className={styles.userPill}>{user.name.split(' ')[0]}</span>
+              <button type="button" className={styles.loginLinkBtn} onClick={logout}>
+                Déconnexion
+              </button>
+            </>
+          ) : (
+            <>
+              <a
+                href="#connexion"
+                className={styles.loginLink}
+                onClick={(e) => {
+                  if (onLoginClick) {
+                    e.preventDefault();
+                    onLoginClick();
+                  }
+                }}
+              >
+                Se connecter
+              </a>
 
-          <a
-            href="#rejoindre"
-            className={styles.ctaBtn}
-            onClick={(e) => {
-              if (onJoinClick) {
-                e.preventDefault();
-                onJoinClick();
-              }
-            }}
-          >
-            Rejoindre le club
-          </a>
+              <a
+                href="#rejoindre"
+                className={styles.ctaBtn}
+                onClick={(e) => {
+                  if (onJoinClick) {
+                    e.preventDefault();
+                    onJoinClick();
+                  }
+                }}
+              >
+                Rejoindre le club
+              </a>
+            </>
+          )}
 
           {/* Hamburger for mobile */}
           <button
@@ -124,43 +129,68 @@ export default function Navbar({ onLoginClick, onJoinClick }) {
 
       {isMobileOpen && (
         <nav className={styles.mobileMenu} aria-label="Navigation mobile">
-          {NAV_LINKS.map((item) => (
-            <a
-              key={item.id}
-              href={item.href}
-              className={`${styles.mobileLink} ${activeId === item.id ? styles.mobileLinkActive : ''}`}
-              onClick={() => handleLinkClick(item.id)}
-            >
-              {item.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((item) => {
+            const isActive = item.match(activePath);
+            return (
+              <a
+                key={item.id}
+                href={item.href}
+                className={`${styles.mobileLink} ${isActive ? styles.mobileLinkActive : ''}`}
+                onClick={closeMobile}
+              >
+                {item.label}
+              </a>
+            );
+          })}
           <div className={styles.mobileDivider} />
-          <a
-            href="#connexion"
-            className={styles.mobileLoginLink}
-            onClick={(e) => {
-              setIsMobileOpen(false);
-              if (onLoginClick) {
-                e.preventDefault();
-                onLoginClick();
-              }
-            }}
-          >
-            Se connecter
-          </a>
-          <a
-            href="#rejoindre"
-            className={styles.mobileCta}
-            onClick={(e) => {
-              setIsMobileOpen(false);
-              if (onJoinClick) {
-                e.preventDefault();
-                onJoinClick();
-              }
-            }}
-          >
-            Rejoindre le club
-          </a>
+          {isAuthenticated ? (
+            <>
+              {isBoardMember && (
+                <a href="#/bureau/messages" className={styles.mobileLoginLink} onClick={closeMobile}>
+                  Espace bureau ({user.name.split(' ')[0]})
+                </a>
+              )}
+              <button
+                type="button"
+                className={styles.mobileCtaBtn}
+                onClick={() => {
+                  closeMobile();
+                  logout();
+                }}
+              >
+                Déconnexion
+              </button>
+            </>
+          ) : (
+            <>
+              <a
+                href="#connexion"
+                className={styles.mobileLoginLink}
+                onClick={(e) => {
+                  closeMobile();
+                  if (onLoginClick) {
+                    e.preventDefault();
+                    onLoginClick();
+                  }
+                }}
+              >
+                Se connecter
+              </a>
+              <a
+                href="#rejoindre"
+                className={styles.mobileCta}
+                onClick={(e) => {
+                  closeMobile();
+                  if (onJoinClick) {
+                    e.preventDefault();
+                    onJoinClick();
+                  }
+                }}
+              >
+                Rejoindre le club
+              </a>
+            </>
+          )}
         </nav>
       )}
     </header>

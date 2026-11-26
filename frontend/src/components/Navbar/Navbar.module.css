@@ -162,6 +162,58 @@
   box-shadow: 0 6px 16px rgba(245, 184, 0, 0.36);
 }
 
+.userPill {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #203B4D;
+  background-color: #F5EBD5;
+  padding: 6px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.boardBadgeLink {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background-color: #203B4D;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.boardBadgeLink:hover {
+  background-color: #162C3B;
+}
+
+.loginLinkBtn {
+  background: none;
+  border: 1.5px solid rgba(32, 59, 77, 0.2);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #203B4D;
+  cursor: pointer;
+}
+
+.loginLinkBtn:hover {
+  background-color: rgba(32, 59, 77, 0.06);
+}
+
+.mobileCtaBtn {
+  margin-top: 6px;
+  background-color: #203B4D;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 /* Mobile Toggle */
 .mobileToggle {
   display: none;
@@ -192,6 +244,9 @@
 @media (max-width: 900px) {
   .navLinks,
   .loginLink,
+  .userPill,
+  .boardBadgeLink,
+  .loginLinkBtn,
   .actions .ctaBtn {
     display: none;
   }

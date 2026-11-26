@@ -1,6 +1,6 @@
 import styles from './EventCard.module.css';
 
-export default function EventCard({ event }) {
+export default function EventCard({ event, href }) {
   const {
     title,
     category,
@@ -14,8 +14,8 @@ export default function EventCard({ event }) {
     image,
   } = event;
 
-  return (
-    <article className={styles.card}>
+  const content = (
+    <>
       <div className={styles.media}>
         <img src={image} alt={title} className={styles.image} loading="lazy" />
 
@@ -59,6 +59,18 @@ export default function EventCard({ event }) {
         </span>
         <span className={styles.price}>{price}</span>
       </div>
-    </article>
+    </>
   );
+
+  if (href) {
+    return (
+      <article className={styles.card}>
+        <a href={href} className={styles.cardLink}>
+          {content}
+        </a>
+      </article>
+    );
+  }
+
+  return <article className={styles.card}>{content}</article>;
 }
