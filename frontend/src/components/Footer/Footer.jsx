@@ -15,7 +15,6 @@ export default function Footer() {
     <footer className={styles.footer} id="contact">
       <div className={styles.container}>
         <div className={styles.grid}>
-          {/* Brand Info */}
           <div className={styles.brandCol}>
             <div className={styles.brandHeader}>
               <img src={clubLogo} alt="LDC Logo" className={styles.brandLogo} />
@@ -40,7 +39,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div className={styles.col}>
             <h4 className={styles.colTitle}>Navigation</h4>
             <ul className={styles.linkList}>
@@ -52,7 +50,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Programs / Tracks */}
           <div className={styles.col}>
             <h4 className={styles.colTitle}>Club Tracks</h4>
             <ul className={styles.linkList}>
@@ -64,7 +61,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact / Office */}
           <div className={styles.col}>
             <h4 className={styles.colTitle}>Contact & Location</h4>
             <ul className={styles.linkList}>
@@ -75,7 +71,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom copyright notice */}
         <div className={styles.bottomBar}>
           <p>© {currentYear} LDC Club Platform. Built with passion & pure CSS.</p>
           <p>

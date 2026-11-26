@@ -1,0 +1,44 @@
+.tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 12px;
+}
+
+/* Sizes */
+.md {
+  width: 44px;
+  height: 44px;
+}
+
+.lg {
+  width: 48px;
+  height: 48px;
+}
+
+/* Tones */
+.green {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.yellow {
+  background-color: #FEF3C5; /* light yellow tint (Figma) */
+  color: #C08F00;            /* darker yellow so the icon stays readable */
+}
+
+.blue {
+  background-color: var(--color-info-bg);
+  color: var(--color-info);
+}
+
+.red {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+
+.navy {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+}
