@@ -1,0 +1,51 @@
+/* Cell styles for the events table.
+   The table itself (header row, borders, scrolling) comes from DataTable. */
+
+/* Event name + picture */
+.eventCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+}
+
+.thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Shown when an event has no picture yet */
+.thumbPlaceholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-info-bg);
+  color: var(--color-info);
+}
+
+.eventName {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* "32 / 50" + progress bar */
+.capacityCell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 150px;
+  max-width: 260px;
+}
+
+.capacityText {
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
