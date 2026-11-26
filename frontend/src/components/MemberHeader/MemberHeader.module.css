@@ -78,6 +78,12 @@
   text-transform: uppercase;
 }
 
+/* Blue variant, used for the "BUREAU" pill in the board area */
+.memberBadgeInfo {
+  background-color: var(--color-info-bg);
+  color: var(--color-info);
+}
+
 /* Language Switcher */
 .langPill {
   display: flex;
@@ -219,10 +225,6 @@
 
 @media (max-width: 768px) {
   .header {
-
-    height: 64px;
-
-
     padding: 0 16px;
   }
 
@@ -235,4 +237,3 @@
     display: none;
   }
 }
-

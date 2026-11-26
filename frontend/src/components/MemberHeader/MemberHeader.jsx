@@ -1,26 +1,34 @@
 import { useState } from 'react';
 import styles from './MemberHeader.module.css';
 
-export default function MemberHeader({ breadcrumbTitle = 'Tableau de bord', onOpenMobile }) {
-  const [activeLang, setActiveLang] = useState('FR');
+// Arabic is written right-to-left, so the whole page direction changes with the language.
+function applyPageLanguage(lang) {
+  const page = document.documentElement;
+  page.dir = lang === 'AR' ? 'rtl' : 'ltr';
+  page.lang = lang.toLowerCase();
+}
+
+export default function MemberHeader({
+  breadcrumbTitle = 'Tableau de bord',
+  onOpenMobile,
+  roleBadge = 'Membre',
+  roleBadgeTone = 'success', // 'success' (green) or 'info' (blue)
+  userRole = 'Membre',
+  defaultLang = 'FR',
+}) {
+  const [activeLang, setActiveLang] = useState(defaultLang);
 
   const handleLangChange = (lang) => {
     setActiveLang(lang);
-    if (lang === 'AR') {
-      document.documentElement.dir = 'rtl';
-      document.documentElement.lang = 'ar';
-    } else {
-      document.documentElement.dir = 'ltr';
-      document.documentElement.lang = lang === 'FR' ? 'fr' : 'en';
-    }
+    applyPageLanguage(lang);
   };
 
   return (
     <header className={styles.header}>
       <div className={styles.leftContainer}>
-        <button 
-          type="button" 
-          className={styles.mobileMenuBtn} 
+        <button
+          type="button"
+          className={styles.mobileMenuBtn}
           onClick={onOpenMobile}
           aria-label="Ouvrir le menu"
         >
@@ -37,10 +45,12 @@ export default function MemberHeader({ breadcrumbTitle = 'Tableau de bord', onOp
       </div>
 
       <div className={styles.rightContainer}>
-        {/* Status Pill */}
-        <span className={styles.memberBadge}>MEMBRE</span>
+        <span
+          className={`${styles.memberBadge} ${roleBadgeTone === 'info' ? styles.memberBadgeInfo : ''}`}
+        >
+          {roleBadge}
+        </span>
 
-        {/* Language Switcher */}
         <div className={styles.langPill}>
           {['FR', 'AR', 'EN'].map((lang) => (
             <button
@@ -54,10 +64,9 @@ export default function MemberHeader({ breadcrumbTitle = 'Tableau de bord', onOp
           ))}
         </div>
 
-        {/* Notification Bell */}
         <div className={styles.notificationWrapper}>
-          <a 
-            href="#" 
+          <a
+            href="#"
             className={styles.notificationBtn}
             aria-label="Notifications"
           >
@@ -69,15 +78,14 @@ export default function MemberHeader({ breadcrumbTitle = 'Tableau de bord', onOp
           <span className={styles.notificationBadge}>4</span>
         </div>
 
-        {/* User Profile Pill */}
-        <a 
-          href="#" 
+        <a
+          href="#"
           className={styles.profileBtn}
         >
           <div className={styles.avatar}>AM</div>
           <div className={styles.userInfo}>
             <span className={styles.userName}>Amine Meziane</span>
-            <span className={styles.userRole}>Membre</span>
+            <span className={styles.userRole}>{userRole}</span>
           </div>
           <span className={styles.chevron}>›</span>
         </a>
@@ -85,4 +93,3 @@ export default function MemberHeader({ breadcrumbTitle = 'Tableau de bord', onOp
     </header>
   );
 }
-

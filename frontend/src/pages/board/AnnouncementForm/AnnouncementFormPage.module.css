@@ -1,0 +1,142 @@
+/* Create / edit announcement (Figma page 34) */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Content on the left, options + preview on the right */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  gap: 24px;
+  align-items: start;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---------- Message editor (toolbar + textarea) ---------- */
+.editor {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.editorInvalid {
+  border-color: var(--color-danger);
+}
+
+/* The textarea sits inside the editor box, so it has no border of its own */
+.editor textarea {
+  border: none;
+  border-radius: 0;
+  box-shadow: none !important;
+}
+
+.formatBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 6px 8px;
+  background-color: #FFFCF7;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.formatButton {
+  min-width: 30px;
+  padding: 4px 8px;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.formatButton:hover {
+  background-color: #F3EDE0;
+}
+
+.formatButton:focus-visible {
+  outline: 2px solid var(--color-info);
+}
+
+.bold { font-weight: 800; }
+.italic { font-style: italic; }
+.underline { text-decoration: underline; }
+
+/* ---------- Attachment ---------- */
+.attachment {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.attachmentLabel {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ---------- Live preview ---------- */
+.preview {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  background-color: #F3E7D4;
+  border-radius: 12px;
+}
+
+.previewBadge {
+  align-self: flex-start;
+  padding: 3px 10px;
+  background-color: var(--color-danger-bg);
+  border-radius: var(--radius-pill);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--color-danger);
+}
+
+.previewTitle {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.25;
+  word-break: break-word;
+}
+
+.previewText {
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  white-space: pre-wrap; /* keeps the line breaks typed in the message */
+  word-break: break-word;
+}
+
+.previewFile {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--color-info);
+  word-break: break-all;
+}
+
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

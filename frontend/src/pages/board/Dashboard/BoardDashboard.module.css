@@ -1,0 +1,183 @@
+/* Board Dashboard (Figma page 29)
+   The page header and the events table now live in shared components:
+   components/PageHeader and components/EventsTable. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* ==========================================================
+   KPI CARDS
+   5 columns on large screens, 3 on laptops/tablets, 2 on small
+   tablets, 1 on phones (see RESPONSIVE section at the bottom).
+   ========================================================== */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* ==========================================================
+   CHART + ACTIVITY (two columns)
+   ========================================================== */
+.middleGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.panelLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-info);
+  white-space: nowrap;
+}
+
+.panelLink:hover {
+  text-decoration: underline;
+}
+
+/* ---- Bar chart ---- */
+.chart {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 260px;
+  padding-top: 8px;
+}
+
+.chartPlot {
+  position: relative;
+  flex: 1;
+  min-height: 220px;
+  margin-left: 36px; /* room for the 0 / 100 / 200 / 300 labels */
+}
+
+.gridLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #F0EADD;
+}
+
+.tickLabel {
+  position: absolute;
+  left: -36px;
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.66rem;
+  color: var(--color-text-muted);
+}
+
+.bars {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.barSlot {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.bar {
+  width: min(40px, 45%);
+  background-color: var(--color-success);
+  border-radius: 4px 4px 0 0;
+  transition: filter var(--transition-fast);
+}
+
+.bar:hover {
+  filter: brightness(1.12);
+}
+
+.barCurrent {
+  background-color: var(--color-accent);
+}
+
+.monthLabels {
+  display: flex;
+  margin-left: 36px;
+  margin-top: 10px;
+}
+
+.monthLabels span {
+  flex: 1;
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+/* ---- Activity list ---- */
+.activityList {
+  display: flex;
+  flex-direction: column;
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.activityItem:first-child {
+  padding-top: 4px;
+}
+
+.activityItem:last-child {
+  border-bottom: none;
+  padding-bottom: 4px;
+}
+
+.activityTitle {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1.35;
+}
+
+.activityTime {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+@media (max-width: 1650px) {
+  .statsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1200px) {
+  .middleGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}

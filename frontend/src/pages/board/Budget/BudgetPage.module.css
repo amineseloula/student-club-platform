@@ -1,0 +1,179 @@
+/* Budget, read-only (Figma page 38) */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+/* ---------- Navy balance card ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 34px 36px;
+  background-color: var(--color-primary);
+  border-radius: 16px;
+  color: var(--color-text-light);
+}
+
+.heroLabel {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.heroValue {
+  margin: 6px 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.heroUnit {
+  font-size: 0.75em;
+}
+
+.heroHint {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.heroIcon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* ---------- 3 summary cards ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* ---------- Two panels ---------- */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Budget per event */
+.budgetRow {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(120px, 1.6fr) 48px;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.budgetRow:first-child {
+  padding-top: 0;
+}
+
+.budgetName {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.budgetAmounts {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.percent {
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+.percentOver {
+  font-weight: 700;
+  color: var(--color-danger);
+}
+
+/* Recent transactions */
+.transaction {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.transaction:first-child {
+  padding-top: 0;
+}
+
+.transactionText {
+  flex: 1;
+  min-width: 0;
+}
+
+.transactionTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.transactionMeta {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.amount {
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.income {
+  color: var(--color-success);
+}
+
+.expense {
+  color: var(--color-primary);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 24px 22px;
+  }
+
+  .heroIcon {
+    display: none;
+  }
+
+  .budgetRow {
+    grid-template-columns: 1fr 48px;
+  }
+
+  .budgetBar {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
