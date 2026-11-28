@@ -36,7 +36,7 @@ export default function MemberHeader({
         </button>
 
         <nav className={styles.breadcrumb} aria-label="Fil d'Ariane">
-          <a href="#" className={styles.breadcrumbPrefix}>
+          <a href="#/membre" className={styles.breadcrumbPrefix}>
             LDC
           </a>
           <span className={styles.breadcrumbSeparator}>/</span>
@@ -66,7 +66,7 @@ export default function MemberHeader({
 
         <div className={styles.notificationWrapper}>
           <a
-            href="#"
+            href="#/membre/notifications"
             className={styles.notificationBtn}
             aria-label="Notifications"
           >
@@ -79,7 +79,7 @@ export default function MemberHeader({
         </div>
 
         <a
-          href="#"
+          href="#/membre/profil"
           className={styles.profileBtn}
         >
           <div className={styles.avatar}>AM</div>

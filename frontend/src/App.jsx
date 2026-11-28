@@ -29,9 +29,33 @@ import MemberDetailPage from './pages/board/MemberDetail/MemberDetailPage';
 import ApplicationsPage from './pages/board/Applications/ApplicationsPage';
 import BudgetPage from './pages/board/Budget/BudgetPage';
 import ContactMessagesPage from './pages/board/ContactMessages/ContactMessagesPage';
-import NotAvailablePage from './pages/board/NotAvailable/NotAvailablePage';
+import MemberLayout from './components/MemberLayout/MemberLayout';
+import MemberDashboard from './pages/member/Dashboard/MemberDashboard';
+import MyEventsPage from './pages/member/MyEvents/MyEventsPage';
+import EventDetailsPage from './pages/member/EventDetails/EventDetailsPage';
+import MyQrCodePage from './pages/member/MyQrCode/MyQrCodePage';
+import EventFeedbackPage from './pages/member/EventFeedback/EventFeedbackPage';
+import AttendanceCertificatePage from './pages/member/AttendanceCertificate/AttendanceCertificatePage';
+import AnnouncementsPage from './pages/member/Announcements/AnnouncementsPage';
+import AnnouncementDetailPage from './pages/member/AnnouncementDetail/AnnouncementDetailPage';
+import NotificationsPage from './pages/member/Notifications/NotificationsPage';
+import ProfilePage from './pages/member/Profile/ProfilePage';
+import SettingsPage from './pages/member/Settings/SettingsPage';
+import RegistrationConfirmedPage from './pages/member/RegistrationConfirmed/RegistrationConfirmedPage';
+import AdminApp from './admin/App';
+import AuthPage from './pages/Auth/AuthPage';
+import StatusPage from './pages/Status/StatusPage';
 
 const ROUTES = [
+  // Authentication and status pages (Pages 10–17)
+  { path: '/connexion', type: 'auth', mode: 'login' },
+  { path: '/inscription', type: 'auth', mode: 'signup' },
+  { path: '/mot-de-passe-oublie', type: 'auth', mode: 'forgot' },
+  { path: '/reinitialiser-mot-de-passe', type: 'auth', mode: 'reset' },
+  { path: '/candidature/en-attente', type: 'status', kind: 'pending' },
+  { path: '/candidature/refusee', type: 'status', kind: 'rejected' },
+  { path: '/403', type: 'status', kind: '403' },
+
   // Public Website
   { path: '/', type: 'home' },
   { path: '/accueil', type: 'home' },
@@ -43,6 +67,20 @@ const ROUTES = [
   { path: '/galerie', type: 'public', component: GalleryPage },
   { path: '/contact', type: 'public', component: ContactPage },
   { path: '/confidentialite', type: 'public', component: PrivacyPolicyPage },
+
+  // Member area (Pages 18–28 and 53)
+  { path: '/membre', type: 'member', activePage: 'dashboard', breadcrumbTitle: 'Tableau de bord', component: MemberDashboard },
+  { path: '/membre/evenements', type: 'member', activePage: 'events', breadcrumbTitle: 'Mes événements', component: MyEventsPage },
+  { path: '/membre/evenements/:id', type: 'member', activePage: 'events', breadcrumbTitle: 'Détails de l’événement', component: EventDetailsPage },
+  { path: '/membre/evenements/:id/qr', type: 'member', activePage: 'events', breadcrumbTitle: 'Mon billet', component: MyQrCodePage },
+  { path: '/membre/evenements/:id/avis', type: 'member', activePage: 'events', breadcrumbTitle: 'Avis sur l’événement', component: EventFeedbackPage },
+  { path: '/membre/evenements/:id/attestation', type: 'member', activePage: 'events', breadcrumbTitle: 'Attestation de présence', component: AttendanceCertificatePage },
+  { path: '/membre/inscription-confirme', type: 'member', activePage: 'events', breadcrumbTitle: 'Inscription confirmée', component: RegistrationConfirmedPage },
+  { path: '/membre/annonces', type: 'member', activePage: 'announcements', breadcrumbTitle: 'Annonces', component: AnnouncementsPage },
+  { path: '/membre/annonces/:id', type: 'member', activePage: 'announcements', breadcrumbTitle: 'Annonce', component: AnnouncementDetailPage },
+  { path: '/membre/notifications', type: 'member', activePage: 'notifications', breadcrumbTitle: 'Notifications', component: NotificationsPage },
+  { path: '/membre/profil', type: 'member', activePage: 'profile', breadcrumbTitle: 'Mon profil', component: ProfilePage },
+  { path: '/membre/parametres', type: 'member', activePage: 'settings', breadcrumbTitle: 'Paramètres', component: SettingsPage },
 
   // Board Administration (Protected)
   { path: '/bureau', type: 'board', activePage: 'overview', breadcrumbTitle: 'Overview', component: BoardDashboard },
@@ -58,41 +96,22 @@ const ROUTES = [
   { path: '/bureau/candidatures', type: 'board', activePage: 'applications', breadcrumbTitle: 'Applications', component: ApplicationsPage },
   { path: '/bureau/budget', type: 'board', activePage: 'budget', breadcrumbTitle: 'Budget', component: BudgetPage },
   { path: '/bureau/messages', type: 'board', activePage: 'messages', breadcrumbTitle: 'Contact messages', component: ContactMessagesPage },
-  { path: '/bureau/actualites', type: 'board', activePage: 'news', breadcrumbTitle: 'Site news', component: NotAvailablePage },
-  { path: '/bureau/galerie', type: 'board', activePage: 'gallery', breadcrumbTitle: 'Site gallery', component: NotAvailablePage },
-  { path: '/bureau/pages', type: 'board', activePage: 'pages', breadcrumbTitle: 'Site pages', component: NotAvailablePage },
-  { path: '/bureau/activite', type: 'board', activePage: 'overview', breadcrumbTitle: 'Activity', component: NotAvailablePage },
-];
+  { path: '/bureau/actualites', type: 'admin', adminPage: 'actualites', breadcrumbTitle: 'Actualités du site' },
+  { path: '/bureau/galerie', type: 'admin', adminPage: 'galerie', breadcrumbTitle: 'Galerie du site' },
+  { path: '/bureau/pages', type: 'admin', adminPage: 'pages-site', breadcrumbTitle: 'Pages du site' },
+  { path: '/bureau/activite', type: 'admin', adminPage: 'journal-activite', breadcrumbTitle: 'Journal d’activité' },
+  { path: '/bureau/rapport', type: 'admin', adminPage: 'rapport-annuel', breadcrumbTitle: 'Rapport annuel' },
+  { path: '/bureau/parametres', type: 'admin', adminPage: 'parametres-club', breadcrumbTitle: 'Paramètres du club' },
 
-function NotFoundPublic() {
-  return (
-    <div style={{ padding: '96px 24px', textAlign: 'center', maxWidth: '520px', margin: '0 auto' }}>
-      <p style={{ fontSize: '0.76rem', fontWeight: 700, letterSpacing: '0.14em', color: '#398F60', marginBottom: '8px' }}>
-        PAGE INTROUVABLE
-      </p>
-      <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', color: '#203D50', marginBottom: '12px' }}>
-        Cette page n&apos;existe pas
-      </h1>
-      <p style={{ color: '#7C8990', marginBottom: '24px' }}>
-        Le lien suivi semble incomplet ou expiré.
-      </p>
-      <a
-        href="#/"
-        style={{
-          display: 'inline-block',
-          backgroundColor: '#F7B900',
-          color: '#203D50',
-          fontWeight: 700,
-          padding: '12px 22px',
-          borderRadius: '10px',
-          textDecoration: 'none',
-        }}
-      >
-        Retour à l&apos;accueil →
-      </a>
-    </div>
-  );
-}
+  // Treasurer area (Pages 42–48)
+  { path: '/administration', type: 'admin', adminPage: 'vue-financiere', breadcrumbTitle: 'Vue financière' },
+  { path: '/administration/transactions', type: 'admin', adminPage: 'transactions', breadcrumbTitle: 'Transactions' },
+  { path: '/administration/transactions/nouveau', type: 'admin', adminPage: 'transaction-form', breadcrumbTitle: 'Ajouter une transaction' },
+  { path: '/administration/budgets-evenements', type: 'admin', adminPage: 'budgets-evenements', breadcrumbTitle: 'Budgets événements' },
+  { path: '/administration/historique', type: 'admin', adminPage: 'historique-budget', breadcrumbTitle: 'Historique budget' },
+  { path: '/administration/rapports', type: 'admin', adminPage: 'rapports', breadcrumbTitle: 'Rapports' },
+  { path: '/administration/cotisations', type: 'admin', adminPage: 'cotisations', breadcrumbTitle: 'Cotisations' },
+];
 
 function AppContent() {
   const rawPath = useHashPath();
@@ -132,15 +151,11 @@ function AppContent() {
   let screen = null;
 
   if (!matched) {
-    screen = (
-      <PublicLayout
-        activePath={normalizedPath}
-        onLoginClick={() => openLoginModal()}
-        onJoinClick={() => openJoinModal()}
-      >
-        <NotFoundPublic />
-      </PublicLayout>
-    );
+    screen = <StatusPage kind="404" />;
+  } else if (matched.route.type === 'auth') {
+    screen = <AuthPage mode={matched.route.mode} />;
+  } else if (matched.route.type === 'status') {
+    screen = <StatusPage kind={matched.route.kind} />;
   } else if (matched.route.type === 'home') {
     screen = (
       <LandingPage
@@ -171,6 +186,27 @@ function AppContent() {
         </BoardLayout>
       </RequireBoardAuth>
     );
+  } else if (matched.route.type === 'member') {
+    const MemberPageComponent = matched.route.component;
+    screen = (
+      <MemberLayout
+        activePage={matched.route.activePage}
+        breadcrumbTitle={matched.route.breadcrumbTitle}
+        sidebarProps={{
+          memberSpaceLabel: 'Mon espace membre',
+        }}
+        headerProps={{
+          roleBadge: 'Membre',
+          roleBadgeTone: 'success',
+          userRole: 'Membre actif',
+        }}
+      >
+        <MemberPageComponent params={matched.params} />
+      </MemberLayout>
+    );
+  } else if (matched.route.type === 'admin') {
+    const adminPageMap = {};
+    screen = <AdminApp key={matched.route.adminPage} initialPage={adminPageMap[matched.route.adminPage] || matched.route.adminPage} />;
   }
 
   return (

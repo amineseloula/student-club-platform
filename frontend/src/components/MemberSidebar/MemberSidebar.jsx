@@ -5,6 +5,7 @@ const MEMBER_NAV_ITEMS = [
   {
     id: 'dashboard',
     label: 'Tableau de bord',
+    href: '#/membre',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -15,6 +16,7 @@ const MEMBER_NAV_ITEMS = [
   {
     id: 'events',
     label: 'Mes événements',
+    href: '#/membre/evenements',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -27,6 +29,7 @@ const MEMBER_NAV_ITEMS = [
   {
     id: 'announcements',
     label: 'Annonces',
+    href: '#/membre/annonces',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="m3 11 18-5v12L3 13v-2z" />
@@ -38,6 +41,7 @@ const MEMBER_NAV_ITEMS = [
     id: 'notifications',
     label: 'Notifications',
     badge: '4',
+    href: '#/membre/notifications',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
@@ -48,6 +52,7 @@ const MEMBER_NAV_ITEMS = [
   {
     id: 'profile',
     label: 'Mon profil',
+    href: '#/membre/profil',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
@@ -58,6 +63,7 @@ const MEMBER_NAV_ITEMS = [
   {
     id: 'settings',
     label: 'Paramètres',
+    href: '#/membre/parametres',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="3" />

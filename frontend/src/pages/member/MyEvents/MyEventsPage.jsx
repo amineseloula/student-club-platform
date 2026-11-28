@@ -133,7 +133,7 @@ export default function MyEventsPage() {
             <div className={styles.eventActions}>
               {evt.hasQr && (
                 <a
-                  href="#"
+                  href={`#/membre/evenements/${evt.id}/qr`}
                   className={styles.btnQr}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -147,7 +147,7 @@ export default function MyEventsPage() {
               )}
 
               <a
-                href="#"
+                href={`#/membre/evenements/${evt.id}`}
                 className={styles.btnDetails}
               >
                 Détails
