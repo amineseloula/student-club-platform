@@ -77,7 +77,7 @@ export default function Footer({ onLoginClick, onJoinClick }) {
             <ul className={styles.linkList}>
               <li className={styles.linkItem}>
                 <a
-                  href="#connexion"
+                  href="#/connexion"
                   onClick={(e) => {
                     if (onLoginClick) {
                       e.preventDefault();

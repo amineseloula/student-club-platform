@@ -76,7 +76,7 @@ export default function Navbar({ activePath = '/', onLoginClick, onJoinClick }) 
           ) : (
             <>
               <a
-                href="#connexion"
+                href="#/connexion"
                 className={styles.loginLink}
                 onClick={(e) => {
                   if (onLoginClick) {
@@ -164,7 +164,7 @@ export default function Navbar({ activePath = '/', onLoginClick, onJoinClick }) 
           ) : (
             <>
               <a
-                href="#connexion"
+                href="#/connexion"
                 className={styles.mobileLoginLink}
                 onClick={(e) => {
                   closeMobile();
