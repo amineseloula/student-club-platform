@@ -46,6 +46,17 @@ import AdminApp from './admin/App';
 import AuthPage from './pages/Auth/AuthPage';
 import StatusPage from './pages/Status/StatusPage';
 
+const MEMBER_PAGES_WITH_LAYOUT = new Set([
+  AnnouncementsPage,
+  AnnouncementDetailPage,
+  EventFeedbackPage,
+  AttendanceCertificatePage,
+  NotificationsPage,
+  ProfilePage,
+  SettingsPage,
+  RegistrationConfirmedPage,
+]);
+
 const ROUTES = [
   // Authentication and status pages (Pages 10–17)
   { path: '/connexion', type: 'auth', mode: 'login' },
@@ -188,7 +199,8 @@ function AppContent() {
     );
   } else if (matched.route.type === 'member') {
     const MemberPageComponent = matched.route.component;
-    screen = (
+    const memberPage = <MemberPageComponent params={matched.params} />;
+    screen = MEMBER_PAGES_WITH_LAYOUT.has(MemberPageComponent) ? memberPage : (
       <MemberLayout
         activePage={matched.route.activePage}
         breadcrumbTitle={matched.route.breadcrumbTitle}
@@ -201,7 +213,7 @@ function AppContent() {
           userRole: 'Membre actif',
         }}
       >
-        <MemberPageComponent params={matched.params} />
+        {memberPage}
       </MemberLayout>
     );
   } else if (matched.route.type === 'admin') {

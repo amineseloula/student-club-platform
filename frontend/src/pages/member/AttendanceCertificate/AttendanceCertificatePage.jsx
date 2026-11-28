@@ -2,6 +2,8 @@ import { useState } from 'react';
 import MemberLayout from '../../../components/MemberLayout/MemberLayout';
 import styles from './AttendanceCertificatePage.module.css';
 
+const EVENTS_PATH = '#/membre/evenements';
+
 export default function AttendanceCertificatePage() {
   const [downloaded, setDownloaded] = useState(false);
 
@@ -14,7 +16,7 @@ export default function AttendanceCertificatePage() {
     <MemberLayout activePage="events" breadcrumbTitle="Certificat de participation">
       <div className={styles.container}>
         <header className={styles.headerSection}>
-          <a href="#" className={styles.backLink}><span aria-hidden="true">←</span> Mes événements</a>
+          <a href={EVENTS_PATH} className={styles.backLink}><span aria-hidden="true">←</span> Mes événements</a>
           <h1 className={styles.pageTitle}>Ton certificat de participation</h1>
           <p className={styles.pageSub}>Garde une trace de tes aventures avec le LDC.</p>
         </header>
@@ -39,7 +41,7 @@ export default function AttendanceCertificatePage() {
             <h2>Félicitations !</h2>
             <p>Tu as participé à cette aventure. Télécharge ton certificat pour le conserver ou le partager.</p>
             <button type="button" className={styles.downloadButton} onClick={handleDownload}>{downloaded ? '✓ Certificat prêt' : '↓ Télécharger le certificat'}</button>
-            <a href="#" className={styles.returnLink}>← Retour à mes événements</a>
+            <a href={EVENTS_PATH} className={styles.returnLink}>← Retour à mes événements</a>
           </aside>
         </div>
       </div>

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import MemberLayout from '../../../components/MemberLayout/MemberLayout';
 import styles from './EventFeedbackPage.module.css';
 
+const EVENTS_PATH = '#/membre/evenements';
+
 const ratingLabels = ['Très déçu', 'Déçu', 'Moyen', 'Satisfait', 'Très satisfait'];
 
 export default function EventFeedbackPage() {
@@ -19,7 +21,7 @@ export default function EventFeedbackPage() {
     <MemberLayout activePage="events" breadcrumbTitle="Donner mon avis">
       <div className={styles.container}>
         <header className={styles.headerSection}>
-          <a href="#" className={styles.backLink}><span aria-hidden="true">←</span> Mes événements</a>
+          <a href={EVENTS_PATH} className={styles.backLink}><span aria-hidden="true">←</span> Mes événements</a>
           <h1 className={styles.pageTitle}>Ton avis compte</h1>
           <p className={styles.pageSub}>Partage ton expérience de la sortie Lac Noir avec nous.</p>
         </header>
@@ -29,7 +31,7 @@ export default function EventFeedbackPage() {
             <div className={styles.successIcon} aria-hidden="true">✓</div>
             <h2>Merci pour ton retour !</h2>
             <p>Ton avis nous aide à rendre les prochaines aventures encore meilleures.</p>
-            <a href="#" className={styles.primaryButton}>Retour à mes événements</a>
+            <a href={EVENTS_PATH} className={styles.primaryButton}>Retour à mes événements</a>
           </section>
         ) : (
           <form className={styles.feedbackLayout} onSubmit={handleSubmit}>
